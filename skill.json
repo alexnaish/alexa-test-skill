@@ -1,0 +1,141 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my kitchen",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "UseItem",
+                    "slots": [
+                        {
+                            "name": "ITEM",
+                            "type": "AMAZON.Food",
+                            "samples": [
+                                "Take away a {ITEM}",
+                                "Take away an {ITEM}",
+                                "Remove a {ITEM}",
+                                "Remove an {ITEM}"
+                            ]
+                        },
+                        {
+                            "name": "COUNT",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "Take {COUNT} away",
+                                "Take away {COUNT}",
+                                "Remove {COUNT}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "that I just finished an {ITEM}",
+                        "that I just finished up a {ITEM}",
+                        "that I just finished up an {ITEM}",
+                        "that I just finished a {ITEM}",
+                        "to remove a {ITEM} ",
+                        "to remove an {ITEM}",
+                        "to remove {COUNT} {ITEM}",
+                        "I just finished an {ITEM}",
+                        "I just finished the {ITEM}",
+                        "I just used up an {ITEM}",
+                        "I just used up a {ITEM}",
+                        "I just used {COUNT} {ITEM}",
+                        "I have used up {COUNT} {ITEM}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "UseItem",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1245809857134"
+                    },
+                    "slots": [
+                        {
+                            "name": "ITEM",
+                            "type": "AMAZON.Food",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1233098436760.1333964399868",
+                                "elicitation": "Elicit.Slot.1233098436760.1333964399868"
+                            }
+                        },
+                        {
+                            "name": "COUNT",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1233098436760.447152994340",
+                                "elicitation": "Elicit.Slot.1245809857134.433165449854"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.1245809857134",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I'm going to remove {COUNT} {ITEM}  from your kitchen itinerary, right?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1245809857134.433165449854",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1233098436760.1333964399868",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What item should I remove?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1233098436760.447152994340",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You want to remove {COUNT} ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1233098436760.1333964399868",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You want to remove {ITEM} ?"
+                    }
+                ]
+            }
+        ]
+    }
+}
